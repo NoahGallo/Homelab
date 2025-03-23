@@ -1,0 +1,9 @@
+---
+- name: Shutdown all k3s nodes
+  hosts: k3s_nodes
+  become: yes
+  tasks:
+    - name: Shutdown the host gracefully
+      community.general.shutdown:
+        msg: "Shutting down the homelab node via Ansible"
+        delay: 0
